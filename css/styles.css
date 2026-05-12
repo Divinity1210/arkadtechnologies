@@ -13,11 +13,11 @@
   --text-muted: #718096;
   --text-light: #A0AEC0;
 
-  /* Accent */
-  --accent: #635BFF;
-  --accent-hover: #5046E5;
-  --accent-light: rgba(99, 91, 255, 0.08);
-  --accent-text: #635BFF;
+  /* Accent — Arkad Arc Blue */
+  --accent: #2962FF;
+  --accent-hover: #1E50D9;
+  --accent-light: rgba(41, 98, 255, 0.08);
+  --accent-text: #2962FF;
 
   /* Status colors */
   --emerald: #10B981;
@@ -119,10 +119,10 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo-img {
-  height: 64px; width: auto; object-fit: contain;
+  height: 80px; width: auto; object-fit: contain;
   transition: height .3s var(--ease);
 }
-.nav.scrolled .nav-logo-img { height: 48px; }
+.nav.scrolled .nav-logo-img { height: 56px; }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-link {
   font-size: .88rem; font-weight: 500; color: var(--text-secondary);
@@ -273,7 +273,7 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
   margin-bottom: 16px;
 }
 .gradient-text-light {
-  background: linear-gradient(135deg, #8B7BFF, #38BDF8);
+  background: linear-gradient(135deg, #2962FF, #38BDF8);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -385,7 +385,7 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
 }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
 .footer-brand p { color: var(--text-secondary); font-size: .86rem; line-height: 1.8; margin-top: 14px; max-width: 300px; }
-.footer-logo-img { height: 60px; width: auto; object-fit: contain; }
+.footer-logo-img { height: 80px; width: auto; object-fit: contain; }
 .footer-col h5 {
   font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
   color: var(--text-primary); margin-bottom: 18px;
@@ -418,8 +418,8 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
   .nav-links.active { display: flex; }
   .nav-links .nav-link { font-size: 1.1rem; color: var(--text-primary); }
   .nav-toggle { display: flex; z-index: 1001; }
-  .nav-logo-img { height: 48px; }
-  .nav.scrolled .nav-logo-img { height: 40px; }
+  .nav-logo-img { height: 56px; }
+  .nav.scrolled .nav-logo-img { height: 44px; }
 
   .hero { min-height: auto; padding: 100px 0 60px; }
   .hero-content-wrapper { padding-top: 40px; padding-bottom: 40px; }
