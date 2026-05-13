@@ -263,7 +263,7 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
 /* ===== PEOPLE WE BUILD FOR ===== */
 .people-section {
   background: #0F0F1A;
-  padding: clamp(80px, 12vw, 120px) 0 0;
+  padding: clamp(80px, 12vw, 120px) 0;
   overflow: hidden;
 }
 .people-content { background: #0F0F1A; }
@@ -285,12 +285,12 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
 /* Marquee container */
 .people-marquee {
   display: flex; flex-direction: column; gap: 8px;
-  overflow: hidden; padding-bottom: 0;
+  overflow: hidden; padding-bottom: 40px;
 }
 .marquee-row {
   overflow: hidden; width: 100%;
 }
-.marquee-track {
+.people-marquee .marquee-track {
   display: flex; gap: 8px; width: max-content;
 }
 .marquee-row-left .marquee-track {
@@ -419,7 +419,7 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hero-content-wrapper { grid-template-columns: 1fr; gap: 40px; }
-  .hero-visual { order: -1; }
+  .hero-visual { order: 1; }
   .hero-illustration { max-width: 360px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .solutions-grid { grid-template-columns: repeat(2, 1fr); }
