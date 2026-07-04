@@ -259,6 +259,18 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
   background: var(--accent-light); color: var(--accent-text);
   border: 1px solid rgba(99, 91, 255, 0.1);
 }
+.sol-card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+.sol-waitlist {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .84rem; font-weight: 600; color: var(--accent-text);
+  padding: 6px 0; transition: all .3s var(--ease);
+}
+.sol-waitlist-arrow { transition: transform .3s var(--ease); }
+.sol-waitlist:hover { color: var(--accent-hover); }
+.sol-waitlist:hover .sol-waitlist-arrow { transform: translateX(4px); }
 
 /* ===== PEOPLE WE BUILD FOR ===== */
 .people-section {
@@ -380,6 +392,23 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
 .bento-card h4 { margin-bottom: 8px; color: var(--text-primary); font-size: 1.05rem; }
 .bento-card p { font-size: .88rem; color: var(--text-secondary); line-height: 1.75; }
 
+/* ===== ROADMAP STRIP ===== */
+.roadmap-strip {
+  display: flex; align-items: stretch; gap: 20px;
+  margin-top: 56px; padding: 28px 36px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+}
+.roadmap-step { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.roadmap-when {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.roadmap-now .roadmap-when { color: var(--accent-text); }
+.roadmap-what { font-size: .92rem; font-weight: 500; color: var(--text-primary); line-height: 1.5; }
+.roadmap-divider { width: 1px; background: var(--border); flex-shrink: 0; }
+
 /* ===== CTA ===== */
 .cta-section { background: var(--bg-soft); }
 .cta-banner {
@@ -389,15 +418,47 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
 }
 .cta-banner h2 { margin-bottom: 14px; }
 .cta-banner p { color: var(--text-secondary); max-width: 480px; margin: 0 auto 32px; line-height: 1.8; }
-.cta-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; width: 100%; }
+.cta-form { display: flex; flex-direction: column; gap: 14px; max-width: 640px; margin: 0 auto; width: 100%; align-items: center; }
+.cta-fields { display: flex; gap: 12px; width: 100%; }
 .cta-input {
-  flex: 1; padding: 14px 20px; border-radius: var(--radius-sm);
+  flex: 1; min-width: 0; padding: 14px 20px; border-radius: var(--radius-sm);
   border: 1.5px solid var(--border); background: var(--bg);
   color: var(--text-primary); font-size: .95rem; font-family: var(--font);
   outline: none; transition: all .3s;
 }
 .cta-input::placeholder { color: var(--text-light); }
 .cta-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1); }
+.cta-select {
+  flex: 0 1 190px; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center;
+  padding-right: 40px;
+}
+.cta-select:invalid, .cta-select option[value=""] { color: var(--text-light); }
+.cta-select option { color: var(--text-primary); }
+.interest-chip {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 10px 8px 16px; border-radius: 100px;
+  font-size: .82rem; color: var(--accent-text);
+  background: var(--accent-light); border: 1px solid rgba(41, 98, 255, 0.15);
+}
+.interest-chip strong { font-weight: 600; }
+.interest-clear {
+  display: flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  font-size: .7rem; color: var(--accent-text);
+  background: rgba(41, 98, 255, 0.12); transition: background .25s;
+}
+.interest-clear:hover { background: rgba(41, 98, 255, 0.22); }
+.cta-note { font-size: .8rem; color: var(--text-muted); margin: 0 !important; transition: color .3s; }
+.cta-note-error { color: var(--rose); }
+@keyframes bannerPulse {
+  0% { box-shadow: var(--shadow-md); }
+  35% { box-shadow: 0 0 0 6px rgba(41, 98, 255, 0.15), var(--shadow-md); }
+  100% { box-shadow: var(--shadow-md); }
+}
+.banner-pulse { animation: bannerPulse 1.2s var(--ease) 0.6s; }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -449,8 +510,11 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
   .people-card { min-width: 260px; height: 180px; }
   .bento-card.bento-large { grid-column: span 1; }
 
-  .cta-form { flex-direction: column; }
+  .cta-fields { flex-direction: column; }
+  .cta-select { flex: 1; width: 100%; }
   .cta-banner { padding: 48px 24px; }
+  .roadmap-strip { flex-direction: column; gap: 20px; padding: 28px 24px; }
+  .roadmap-divider { width: 100%; height: 1px; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .about-values { gap: 8px; }
